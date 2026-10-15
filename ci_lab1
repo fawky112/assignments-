@@ -1,0 +1,33 @@
+import random
+import math
+
+a = int(input("Enter a: "))
+b = int(input("Enter b: "))
+
+numbers = []
+
+for i in range(1000):
+    numbers.append(random.uniform(a, b))
+
+# Sort numbers
+numbers.sort()
+
+# Average
+average = sum(numbers) / 1000
+
+# Median
+median = (numbers[499] + numbers[500]) / 2
+
+# Standard deviation
+total = 0
+for x in numbers:
+    total += (x - average) ** 2
+
+std = math.sqrt(total / 1000)
+
+# Display results
+print("Average:", average)
+print("Median:", median)
+print("Standard Deviation:", std)
+print("Largest 3 values:", numbers[-3:][::-1])
+print("Smallest 5 values:", numbers[:5])
